@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Hamburger from 'hamburger-react';
 import { categoryChange } from '../../actions';
-import { TopWrapper, Logo, IconsDiv, Cart, User, CartCount } from './style';
+import { TopWrapper, Logo, IconsDiv, Cart, User, CartCount, HamburgerMenu } from './style';
 
 
-const Topbar = ({ cart }) => {
+const Topbar = ({ cart, isOpen, setOpen }) => {
     const [cartCount, setCartCount] = useState(0);
     const dispatch = useDispatch();
 
@@ -22,7 +23,8 @@ const Topbar = ({ cart }) => {
             <Link style={{textDecoration: "none", top: ".5vh", position: "relative"}} to="/" onClick={() => dispatch(categoryChange('HOME'))}><Logo>E-commerce site</Logo></Link>
             <IconsDiv>
                 <Link style={{textDecoration: "none", display: "inherit"}} to="/cart" onClick={() => dispatch(categoryChange('CART'))}><Cart />{cartCount > 0 ? <CartCount>{cartCount}</CartCount> : ''}</Link>
-                <Link style={{textDecoration: "none"}} to="/user" onClick={() => dispatch(categoryChange('USER'))}><User /></Link>
+                {/*<Link style={{textDecoration: "none"}} to="/user" onClick={() => dispatch(categoryChange('USER'))}><User /></Link>*/}
+                <HamburgerMenu><Hamburger toggled={isOpen} toggle={setOpen} /></HamburgerMenu>
             </IconsDiv>
         </TopWrapper>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, Image, HeaderText, CoverDiv } from './style';
+import { Wrapper, Image, HeaderText } from './style';
 
 function Header() {
     return (

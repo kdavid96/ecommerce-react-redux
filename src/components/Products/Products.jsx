@@ -1,18 +1,20 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import Product from './Product';
-import { ProductWrapper, ProductList } from './style';
+import { ProductWrapper, ProductList, CategoryHeader } from './style';
 
 const Products = ({ products }) => {
     const category = useSelector(state => state.category);
-    const dispatch = useDispatch();
     return (
         <ProductWrapper>
-            <h2>{category}</h2>
+            <CategoryHeader>{category.toUpperCase()}</CategoryHeader>
             <ProductList>
                 {category === 'HOME' ? products.map((product) => { return <Product id={product.id} name={product.name} brand={product.brand} price={product.price} image={product.image}/>})
                 :
-                products.map((product) => {if( product.type.toUpperCase() === category) return <Product id={product.id} name={product.name} brand={product.brand} price={product.price} image={product.image}/>})}
+                products.map((product) => {
+                    if( product.type.toUpperCase() === category) return <Product id={product.id} name={product.name} brand={product.brand} price={product.price} image={product.image}/>
+                    else return '';
+                })}
             </ProductList>
         </ProductWrapper>
     )

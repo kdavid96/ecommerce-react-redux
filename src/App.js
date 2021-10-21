@@ -1,24 +1,20 @@
+import react, { useState } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Products from './components/Products/Products';
-import Topbar from './components/Topbar/Topbar';
-import Header from './components/Header/Header';
-import Delivery from './components/Info/Delivery';
-import Returns from './components/Info/Returns';
-import PageNotFound from './components/PageNotFound/PageNotFound';
-import Cart from './components/Cart/Cart';
-import User from './components/User/User';
-import ProductPage from './components/Products/ProductPage';
+import { Navbar, Products, Topbar, Home, Delivery, Returns, PageNotFound, Cart, User, ProductPage, Footer, MobileNav } from './components';
 
 function App() {
+  const [isOpen, setOpen] = useState(false);
   return (
       <div className="App">
-        <Topbar />
-        <Header />
-        <Navbar />
-          <div>
+        <Topbar isOpen={isOpen} setOpen={setOpen}/>
+        <Navbar isOpen={isOpen}/>
+        <MobileNav isOpen={isOpen} setOpen={setOpen}/>
+          <div style={{position: 'relative', top: '5vh'}}>
             <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
               <Route exact path="/delivery">
                 <Delivery />
               </Route>
@@ -31,10 +27,10 @@ function App() {
               <Route exact path="/user">
                 <User />
               </Route>
-              <Route exact path={["/", "/electronics", "/clothes", "/shoes", "/accessories"]}>
+              <Route exact path={["/electronics", "/clothes", "/shoes", "/accessories"]}>
                 <Products />
               </Route>
-              <Route path="products/:id" >
+              <Route path="/products/:id" >
                 <ProductPage />
               </Route>
               <Route>
@@ -42,6 +38,7 @@ function App() {
               </Route>
             </Switch>
           </div>
+        {/*<Footer />*/}
     </div>
   );
 }

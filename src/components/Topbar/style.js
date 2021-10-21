@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import breakpoint from '../breakpoints';
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 
 export const TopWrapper = styled.section`
@@ -13,6 +14,17 @@ export const TopWrapper = styled.section`
     z-index: 2000;
     align-content: center;
     justify-content: space-between;
+    align-items: center;
+    box-shadow:  0 0 15px 2px gray;
+`;
+
+export const HamburgerMenu = styled.span`
+    display: none;
+    font-weight: bolt;
+    font-size: 2rem;
+    @media only screen and ${breakpoint.device.sm}{
+        display: block;
+    }
 `;
 
 export const Logo = styled.a`
@@ -33,7 +45,7 @@ export const IconsDiv = styled.div`
 export const CartCount = styled.p`
     position: relative;
     right: 10%;
-    top: -20%;
+    top: -15%;
     background-color: red;
     border: 4px solid red;
     padding: 0;

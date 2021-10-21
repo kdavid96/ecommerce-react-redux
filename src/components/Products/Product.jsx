@@ -11,7 +11,12 @@ const Product = ({id, brand, name, price, image, addToCart}) => {
         const img = new Image();
         img.src = image;        
         img.addEventListener('load', () => setColor(colorThief.getColor(img)));
-    }, []);
+    });
+
+    const goToProductPage = () => {
+        console.log(`/products/${id}`);
+    }
+
     return (
         <Card>
             {
@@ -20,7 +25,7 @@ const Product = ({id, brand, name, price, image, addToCart}) => {
                 <ProductImage img={image}/>
                 <ProductInfoContainer bgcolor={color}>
                     <BrandDisplay>{brand}<br/>{name}</BrandDisplay>
-                    <ProductPrice>{price}</ProductPrice>
+                    <ProductPrice>{price}$</ProductPrice>
                     <ProductButton onClick={() => addToCart(id)}>Add to cart</ProductButton>
                 </ProductInfoContainer>
             </TextContainer>
@@ -29,7 +34,8 @@ const Product = ({id, brand, name, price, image, addToCart}) => {
                 <ProductImage img={image}/>
                 <ProductInfoContainer bgcolor={color}>
                     <BrandDisplay>{brand}<br/>{name}</BrandDisplay>
-                    <ProductPrice>{price}</ProductPrice>
+                    <ProductPrice>$ {price}</ProductPrice>
+                    {/*<ProductButton onClick={() => goToProductPage()}>See More</ProductButton>*/}
                     <ProductButton onClick={() => addToCart(id, color[0], color[1], color[2])}>Add to cart</ProductButton>
                 </ProductInfoContainer>
             </TextContainer>

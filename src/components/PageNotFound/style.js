@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from '@mui/material/Button';
 
 export const ErrorContainer = styled.div`
-    min-height: 850px;
+    min-height: 87vh;
     background-color: #D84C7E;
 `;
 

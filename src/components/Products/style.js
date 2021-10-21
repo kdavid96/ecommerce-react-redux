@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import Button from '@mui/material/Button';
+import styled from 'styled-components';
 
 export const ProductWrapper = styled.section`
     width: 100%;
@@ -8,7 +8,14 @@ export const ProductWrapper = styled.section`
     background: white;
     display: flex;
     flex-direction: column;
-    min-height: 850px;
+    min-height: 87vh;
+`;
+
+export const CategoryHeader = styled.h2`
+    background-color: #291B46;
+    color: white;
+    padding: 15px;
+    margin: 0;
 `;
 
 export const CounterButton = styled(Button)`
@@ -60,7 +67,7 @@ export const Card = styled.div`
 
 export const ProductImage = styled.div`
     position: relative;
-    width: 25vw;
+    width: 40vw;
     height: 25vw;
     background-image: ${props => `url(${props.img})`};
     background-repeat: no-repeat;
@@ -75,20 +82,21 @@ export const TextContainer = styled.div`
     height: 100%;
     background-color: ${props => `rgb(${props.bgcolor1}, ${props.bgcolor2}, ${props.bgcolor3})`};
     border-radius: 5px;
-    color: white;
+    color: black;
     left: 15%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
 `;
 
 export const ProductInfoContainer = styled.div`
     position: relative;
-    top: -30vh;
     z-index: 1000;
-    grid-row-start: row1-start;
-    grid-row-end: 3;
-    grid-column-start: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: inherit;
+    margin-left: 15px;
+    padding-right: 15px;
 `;
 
 export const BrandDisplay = styled.p`
@@ -99,33 +107,60 @@ export const BrandDisplay = styled.p`
     justify-content: center;
     align-content: center;
     align-items: center;
+    color: black;
 `;
+
 
 export const ProductPrice = styled.p`
     position: relative;
-    width: 100%;
+    width: 25%;
     font-weight: 800;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
+    color: black;
 `;
 
 export const ProductButton = styled(Button)`
     height: 75%;
     background-color: white !important;
-    top: 70% !important;
+    top: 10% !important;
     color: #291B46 !important;
     font-weight: 600 !important;
     border: 0;
     transition: border .5s ease-in-out;
     box-sizing: border-box;
     border: 2px solid transparent !important;
+    max-height: 25%;
+    top: 36.5% !important;
+    position: relative;
 
     &:nth-child(1){
         margin-right: 5px;
     }
+
+    &:hover{
+        border: 2px solid #291B46 !important;
+        transition: border .5s ease-in-out;
+    }
+`;
+
+export const DeleteButton = styled(Button)`
+    height: 75%;
+    background-color: grey !important;
+    color: #291B46 !important;
+    font-weight: 600 !important;
+    font-size: 2rem !important;
+    border: 0;
+    transition: border .5s ease-in-out;
+    box-sizing: border-box;
+    border: 2px solid transparent !important;
+    max-height: 25%;
+    top: 40% !important;
+    right: 6%;
+    position: relative;
 
     &:hover{
         border: 2px solid #291B46 !important;
@@ -143,9 +178,8 @@ export const CartItem = styled.div`
     position: relative;
     width: 75vw;
     height: 20vh;
-    background-color: ${props => `rgb(${props.r}, ${props.g}, ${props.b})`};
+    background-color: whitesmoke;
     border-radius: 25px;
-    left: 12.5vw;
     margin-bottom: 10vh;
     display: flex;
     flex-direction: row;
@@ -170,9 +204,9 @@ export const RemoveButton = styled.div`
 
 export const QtyDisplay = styled.input`
     height:25px;
-    width: 35%;
+    width: 15%;
     text-align: center;
-    font-size: 26px;
+    font-size: 20px;
     border:1px solid #ddd;
     border-radius:4px;
     margin-right: 15px;
@@ -183,7 +217,7 @@ export const QtyButton = styled(Button)`
     background-color: grey !important;
     color: black !important;
     width: inherit;
-    width: 35%;
+    width: 0 !important;
 `;
 
 export const QtyContainer = styled.div`

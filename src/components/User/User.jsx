@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { UserContainer, UserTitle, UserInfo } from './style';
 
 export default function User() {
     return (
-        <div>
-            User
-        </div>
+        <UserContainer>
+            <UserTitle>User</UserTitle>
+            <UserInfo>
+                Information about the current user
+            </UserInfo>
+        </UserContainer>
     )
 }
